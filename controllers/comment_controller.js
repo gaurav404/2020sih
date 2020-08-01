@@ -41,7 +41,6 @@ exports.comment = function (req, res) {
                 ref: req.params.id,
             }).save(function (err, doc) {
                 if (err) throw err
-    
                 console.log(`[${req.params.subreddit}] comment posted!`)
             })
         }else if(val==0){
