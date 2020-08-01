@@ -1,0 +1,10 @@
+module.exports={
+    facebook:{
+        clientID:'545420689239190',
+        clientSecret:'d3c5c24c5ef1e468dbfc671b4c19bd82'
+    },
+    google:{
+        clientID:'679683625150-qg13lvq34fis5l78c6f5te1ihscl3n0p.apps.googleusercontent.com',
+        clientSecret:'4UNtmgIUC4Jo7svJ0hXnERJz'
+    }
+}

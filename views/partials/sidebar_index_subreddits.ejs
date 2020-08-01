@@ -1,0 +1,15 @@
+<h4 class="text-center">Subbeddits (<% if(subreddits){%><%=subreddits.length%><%}else{%>0<%}%> )</h4>
+<table class="table table-striped">
+    <tbody>
+<% if (subreddits != undefined) { 
+    subreddits.forEach((s) => { %>
+        <tr>
+        <td><a href="/forum/r/<%= s.name %>">/r/<%= s.name %></a></td>
+        </tr>
+    <% }); %>
+    <% if(subreddits.length == 0) { %>
+        You are not subscribed to any subbeddit
+    <% } %>
+<% } %>
+    </tbody>
+</table>   

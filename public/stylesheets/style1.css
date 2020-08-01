@@ -1,0 +1,8 @@
+.navbar-pers{
+    display:flex;
+    justify-content:space-evenly;
+}
+.navbar-pers>li{
+    flex:1;
+    text-align: center;
+}

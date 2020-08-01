@@ -1,0 +1,142 @@
+<%- include('partials/header') -%>
+<div class="parallax">
+
+	<div id="search" class="jumbotron text-center ">
+			<div class="hero-container">
+      		<h1> FIND YOUR DOCTOR </h1>
+      				<form action="/doctors" method="GET" class="form-inline">
+	        		  	<div class="form-group searchbar">
+	          				<input type="text" name="search" placeholder="  Search . . . " class="form-control">
+	          				<input type="submit" value="search" placeholder="  Search . . . " class="btn btn-primary">
+	          				
+	          				
+	          				<div class="searchby">
+	          					<input id="doctors" name="searchby" type="radio" value="doctors"  />
+			                		<label for="doctors"> Doctors </label>
+	          					<input id="location" name="searchby" type="radio" value="location"  />
+			                		<label for="location"> Location </label>
+			                    <input id="specialization" name="searchby" type="radio" value="specialization"  />
+			                		<label for="specialization"> Specialization </label>
+			                </div>
+			                
+			                
+	                    </div>
+      				</form>
+      			<a href="doctors?search=&searchby=doctors" class="btn btn-primary"> View All Doctors </a>
+    	</div>
+	</div>
+<br>
+
+
+
+
+
+
+	<!--SPECIFY ACCORDING TO CITY-->
+	<div id="specify" class="container-fluid">
+			<div class="text-center">
+				<h2> FIND YOUR DOCTOR OR CLINIC </h2>
+			</div>
+
+			<div class="row slideanim">
+				<div class="col-sm-2">
+				</div>
+				<div class="col-sm-4">
+					<div class="panel panel-default text-center">
+						<div class="panel-heading">
+							<h1>Search by City  <span class="glyphicon glyphicon-map-marker"></span></h1> 
+						</div>
+
+						<ul class="panel-body">
+							 <a href="/doctors?search=guwahati&searchby=location"><li><p> Guwahati </p></li></a> 
+							 <a href="/doctors?search=silchar&searchby=location"> <li><p>Silchar </p></li></a>  
+							 <a href="/doctors?search=jorhat&searchby=location"><li><p> Jorhat </p></li></a> 
+							 <a href="/doctors?search=goalpara&searchby=location"> <li><p>Goalpara </p></li></a> 
+							 <a href="/doctors?search=nagaon&searchby=location"><li><p> Nagaon </p></li></a>  
+							 <a href="/doctors?search=barpeta&searchby=location"><li><p> Barpeta </p></li></a> 
+							 <a href="/doctors?search=dibrugarh&searchby=location"><li><p> Dibrugarh</p></li> </a>  
+							 <a href="/doctors?search=halflong&searchby=location"> <li><p>Halflong </p></li></a> 
+							 <a href="/doctors?search=tezpur&searchby=location"><li><p> Tezpur </p></li></a> 
+							 <a href="/doctors?search=tinsukia&searchby=location"><li><p> Tinsukia</p></li> </a> 
+						</ul>
+
+					
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="panel panel-default text-center">
+						<div class="panel-heading">
+							<h1 >Search by Type  <span class="glyphicon glyphicon-edit"></span></h1> 
+						</div>
+							<ul class="panel-body">
+							
+							<a href="/doctors?search=dentist&searchby=specialization"></a><li><p> Dentist </p></li> </a>
+							<a href="/doctors?search=ENT&searchby=specialization"><li><p> ENT specialist  </p></li> </a>
+							<a href="/doctors?search=cardio&searchby=specialization"><li><p>  Cardiologist </p></li></a>
+							<a href="/doctors?search=ortho&searchby=specialization"><li><p> Orthopaedic surgeon </p></li></a>
+							<a href="/doctors?search=paedia&searchby=specialization"><li><p> Paediatrician </p></li></a>
+							<a href="/doctors?search=psychia&searchby=specialization"><li><p> Psychiatrists </p></li></a>
+							<a href="/doctors?search=radio&searchby=specialization"><li><p> Radiologist </p></li></a>
+							<a href="/doctors?search=endochr&searchby=specialization"><li><p> Endocrinologist </p></li></a>
+							<a href="/doctors?search=neuro&searchby=specialization"><li><p> Neurologist </p></li></a>
+							<a href="/doctors?search=child&searchby=specialization"><li><p> Child Specialist </p></li></a>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-2">
+				</div>
+			</div>
+  </div>
+</div>
+<!--    footer    .....................      -->
+
+
+
+<script> 
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})  
+  </script>
+
+<script>  
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+
+
+
+<%- include('partials/footer'); -%>

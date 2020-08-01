@@ -1,0 +1,89 @@
+<%- include('../partials/header') %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead"> Booking Info </p>
+            <div class="list-group">
+                <li class="list-group-item active"> Ph. No = 92839-23131 </li>
+                <li class="list-group-item"> Clinic Address = </li>
+                <li class="list-group-item"> </li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= doctor.image %>">
+                <div class="caption-full">
+                    <!--<h4 class="pull-right">$9.00/night</h4>-->
+                    <h4><a><%=doctor.name%></a></h4>
+                    <hr>
+                    <h4> <strong> Specialization : </strong> <%=doctor.specialization%> </h4>
+                    <hr>
+                    <h4><strong> Address : </strong><%=doctor.location%></h4>
+                    
+                   <p> <strong>  Rating : </strong>  </p>    
+                    <div class="ratings-show">
+                       
+                         <p>
+                         <% var star_rating = doctor.rating;
+        	                for (var i = 0; i < 5; i++) { %>
+                     <span class="glyphicon glyphicon-star<%= (i < star_rating - 0.5)? '' : '-empty empty-star'%>"></span>
+                         <% } %>
+                         </p>
+                	</div>
+                    
+                    	
+	             </div>	
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <p><%= doctor.description %></p>
+                    <!--<p>-->
+                    <!--    <em>Submitted By <%= doctor.author.username %></em>-->
+                    <!--</p>-->
+                    <% if(currentUser && doctor.author.id.equals(currentUser)){ %>
+                        <a class="btn btn-xs btn-warning" href="/doctors/<%= doctor._id %>/edit">Edit</a>
+                        <form id="delete-form" action="/doctors/<%= doctor._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    <% }%>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/doctors/<%= doctor._id %>/comments/new">Add New Comment</a>
+                </div>
+                <hr>
+                <% doctor.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            <span class="pull-right">10 days ago</span>
+                            <p>
+                                <%= comment.text %> 
+                            </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-xs btn-warning" 
+                               href="/doctors/<%=doctor._id %>/comments/<%=comment._id %>/edit">Edit</a>
+                            <form id="delete-form" action="/doctors/<%=doctor._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                        <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include('../partials/footer') %>
