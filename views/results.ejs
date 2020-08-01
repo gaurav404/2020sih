@@ -74,7 +74,7 @@
                         <div class="col-md-12">
                             <div class="filter-container">
                                 <div class="card">
-                                    <form action="/results" method="post">
+                                    <form action="/chat/results" method="post">
                                         <div class="content">
                                             <p class="filter">
                                                 FILTER
@@ -100,7 +100,7 @@
                             <div class="category-list">
                                 <div class="row">
                                     <% _.forEach(val, function(val2){ %>
-                                        <form action="/home" method="post" id="favorite">
+                                        <form action="/chat/home" method="post" id="favorite">
                                             <a style="text-decoration:none" href="/chat/group/<%= val2.name %>">
                                                 <div class="item col-md-4">
                                                     <div class="thumbnail">

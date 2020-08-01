@@ -2,7 +2,7 @@ let Post = require("../models/post");
 let Comment = require("../models/comment");
 let Profile = require("../models/profile");
 let CommentState = require("../models/commentState")
-
+let perspect = require("../helpers/perspective")
 
 exports.check = function (req, res) {
     CommentState.find({
@@ -32,16 +32,24 @@ exports.comment = function (req, res) {
             console.log(`[${req.params.subreddit}] number of comment updated!`)
         }
     })
-
-    Comment({
-        body: req.body.comment,
-        username: req.user.username,
-        ref: req.params.id,
-    }).save(function (err, doc) {
-        if (err) throw err
-
-        console.log(`[${req.params.subreddit}] comment posted!`)
-        res.redirect(`/forum/r/${req.params.subreddit}/${req.params.id}/comments`)
+    perspect(req.body.comment).then((val)=>{
+        console.log(val);
+        if(val==1){
+            Comment({
+                body: req.body.comment,
+                username: req.user.username,
+                ref: req.params.id,
+            }).save(function (err, doc) {
+                if (err) throw err
+    
+                console.log(`[${req.params.subreddit}] comment posted!`)
+            })
+        }else if(val==0){
+            console.log("sorry");
+        }else{
+            console.log("extremely sorry");
+        }
+        res.redirect(`/forum/r/${req.params.subreddit}/${req.params.id}/comments`);
     })
 }
 

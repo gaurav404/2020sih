@@ -52,7 +52,7 @@
         </div>
     </nav>
     <div class="col-md-12">
-        <form action="/members" method="post">
+        <form action="/chat/members" method="post">
             <div class="form-group ad-30" style="margin-top:8px;">
                 <div class="input-group search-style">
                     <input class="form-control new-search-bar" name="username" id="search" placeholder="Enter User Name" type="text">
@@ -100,7 +100,7 @@
                             <div class="category-list">
                                 <div class="row">
                                     <% _.forEach(val, function(val2){ %>
-                                        <form action="/home" method="post" id="favorite">
+                                        <form action="/chat/home" method="post" id="favorite">
                                             <a style="text-decoration:none" href="/profile/<%=val2.username%>">
                                                 <div class="item col-md-3">
                                                     <div class="thumbnail">
