@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
-    <%- include('../partials/head', {title: "Beddit - Frontpage"}) %>
+    <%- include('../partials/head', {title: "Swaraksha Sahayak"}) %>
 
 <body>
     <%- include('../partials/nav', {user: locals.user, karma}) %>
-    <%- include('../partials/jumbotron', {name: "Frontpage"}) %>
+    <%- include('../partials/jumbotron', {name: "Forum"}) %>
     <span id="auth"><%= isAuth %></span>
 
     <div class="grid-container">
@@ -32,13 +32,13 @@
                 <% } else if (post.type == "link") { %>
                 <a href="<%= post.link %>"><img src="/images/link.png" height="55" width="55" class="thumbnail"></a>
                 <% } else { %>
-                <a href="/r/<%= post.subreddit %>/<%= post._id %>"><img src="/images/post.png" height="55" width="55" class="thumbnail"></a>
+                <a href="/forum/r/<%= post.subreddit %>/<%= post._id %>"><img src="/images/post.png" height="55" width="55" class="thumbnail"></a>
                 <% } %>
 
                 <div class="info">
                     <header>
                         <% if(post.type == "post") { %>
-                        <a href="/r/<%= post.subreddit %>/<%= post._id %>"><%= post.title %></a>
+                        <a href="/forum/r/<%= post.subreddit %>/<%= post._id %>"><%= post.title %></a>
                         <%  } else { %>
                         <a href="<%= post.link %>"><%= post.title %></a>
                         <% } %>
@@ -46,11 +46,11 @@
                     </header>
                     <div>
                         submitted <time title="<%= post.time %>">-</time>
-                        by <span class="post-user"><a href="/u/<%= post.username %>"><%= post.username %></a></span>
-                        from <span><a href="/r/<%= post.subreddit %>">/r/<%= post.subreddit %></a></span>
+                        by <span class="post-user"><a href="/forum/u/<%= post.username %>"><%= post.username %></a></span>
+                        from <span><a href="/forum/r/<%= post.subreddit %>">/r/<%= post.subreddit %></a></span>
                     </div>
                     <ul class="post-options">
-                        <li><a href="/r/<%=post.subreddit %>/<%= post._id %>"><%=post.num_of_comments%> comments</a></li>
+                        <li><a href="/forum/r/<%=post.subreddit %>/<%= post._id %>"><%=post.num_of_comments%> comments</a></li>
                         <li><a href="javascript:void(0)" class="save-post auth-req">save</a></li>
                         <% if(post.username == locals.user) { %>
                             <li><a href="javascript:void(0)" class="delete-post auth-req">delete</a></li>

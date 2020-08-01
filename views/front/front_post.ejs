@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
-    <%- include('../partials/head', {title: "Frontpage - new link"}) %>
+    <%- include('../partials/head', {title: "Swaraksha Sahayak"}) %>
 
 <body>
     <%- include('../partials/nav', {user: locals.user, karma}) %>
-    <%- include('../partials/jumbotron', {name: "Frontpage"}) %>
+    <%- include('../partials/jumbotron', {name: "Forum"}) %>
     <span id="auth"><%= isAuth %></span>
 
     <div class="grid-container">
@@ -17,13 +17,13 @@
             <h4>new post</h4>
             <div class="submit-wrapper">
                 <% if(!locals.user) { %>
-                    You must be logged in to submit a post / link / subbeddit.
+                    You must be logged in to submit a post
                 <% } else { %>
                 <form id="form-post-or-link" action="/submit/post" method="post">
                     <input type="text" class="form-control" name="title" placeholder="Enter title" required><br>
                     <textarea class="form-control" rows="5" name="text" placeholder="Enter body" required></textarea><br>
-                    <input type="text" class="form-control" name="subreddit" id="subreddit_form" placeholder="Enter subbeddit" required><br>
-                    <div class="invalid-feedback">That subbeddit doesn't exist!</div><br>
+                    <input type="text" class="form-control" name="subreddit" id="subreddit_form" placeholder="Enter subforum" required><br>
+                    <div class="invalid-feedback">That subforum doesn't exist!</div><br>
                     <button type="submit" class="btn btn-primary auth-req">Submit</button>
                 </form>
                 <% } %>

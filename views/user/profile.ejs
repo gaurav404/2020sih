@@ -50,12 +50,7 @@
 
                                     <div class="profile-usermenu">
                                         <ul class="nav">
-                                            <li>
-                                                <a href="/profile/<%= user.username %>" style="color:#4aa1f3 !important">
-                                                    <i class="fa fa-home" style="color:#4aa1f3 !important"></i>
-                                                    Overview
-                                                </a>
-                                            </li>
+                                          
                                             <li class="active">
                                                 <a href="#" style="color:#4aa1f3 !important">
                                                     <i class="fa fa-user" style="color:#4aa1f3 !important"></i>
@@ -118,22 +113,20 @@
                                 <% }) %>
 
                                 <div class="" style="margin-top:20px">
-                                    <label style="color:#4aa1f3 !important">Mantra</label>
+                                   
                                     <br>
                                     <textarea name="mantra" id="mantra" class="form-control input-lg" rows="5" placeholder="A one liner sentence"><%= user.mantra.trim() %></textarea>
                                 </div>
 
-                                <label style="color:#4aa1f3 !important">Club You Support</label>
+                         
                                 <br>
-                                <select name="club" id="club" class="form-control select">
-                                    <option value="">Club name</option>
-                                </select>
+      
 
                                 <div>
                                     <label style="color:#4aa1f3 !important">Add Profile Photo</label>
                                     <br>
                                     <input type="hidden" id="user-image" value="<%= user.userImage %>">
-                                    <button class="btn btn-lg add-btn" style="background-color:#4aa1f3 !important; color:white" type="button">Add Profile Image</button>
+
                                     <input type="file" class="form-control" name="upload" id="add-input" style="display: none">
                                     <span id="completed"></span>
                                 </div>

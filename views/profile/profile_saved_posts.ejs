@@ -11,7 +11,7 @@
         <div class="sidebar">
             <img id="profile-pic" src="/images/default.png" height="134" width="134"><br>
             <div id="profile-info">
-                Karma: <span class="karma"><%=karma%></span>
+                Points: <span class="karma"><%=karma%></span>
                 Joined: <span class="joined"><%= created %></span>
             </div>
             
@@ -37,10 +37,9 @@
                     </tr>
                 <% }); %>
                     <% if(subscribed.length == 0) { %>
-                        They are not subscribed to any subbeddit
-                    <% } %>
+                        They are not subscribed to any subforum
                 <% } else { %>
-                    <span class="text-center">They are not subscribed to any subbeddit</span>
+                    <span class="text-center">They are not subscribed to any subforum</span>
                 <% } %>
             </tbody>
             </table>

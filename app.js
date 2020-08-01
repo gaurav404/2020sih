@@ -21,7 +21,7 @@ const methodOverride = require("method-override"),
 
 const container = require('./container');
 //check
-container.resolve(function(users, _, admin, home, group, results, privatechat, profile, interest, news) {
+container.resolve(function(users, _, admin, home, group, results, privatechat, profile, interest) {
 	mongoose.Promise = global.Promise;
 	mongoose.connect(db.config.uri, db.config.options);
 
@@ -68,7 +68,7 @@ container.resolve(function(users, _, admin, home, group, results, privatechat, p
 		privatechat.setRouting(router);
 		profile.setRouting(router);
 		interest.setRouting(router);
-		news.setRouting(router);
+	
 		app.use(router);
 		// Forum Routes
 		app.use('/forum', require('./routes/front'));
@@ -81,6 +81,7 @@ container.resolve(function(users, _, admin, home, group, results, privatechat, p
 		//app.use("/doctor", indexRoutes);
 		//Doctor Routes
 		app.use('/doctors/', require('./routes/doctors'));
+			app.use('/blog', require('./routes/blog'));
       //  app.use("/doctors/:id/comments", commentRoutes);
         app.get('*', function (req, res) {
 			res.status(404);

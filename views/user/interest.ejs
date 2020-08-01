@@ -51,12 +51,7 @@
 
                                         <div class="profile-usermenu">
                                             <ul class="nav">
-                                                <li>
-                                                    <a href="/profile/<%= user.username %>" style="color:#4aa1f3 !important">
-                                                        <i class="fa fa-home" style="color:#4aa1f3 !important"></i>
-                                                        Overview
-                                                    </a>
-                                                </li>
+                                         
                                                 <li >
                                                     <a href="/settings/profile" style="color:#4aa1f3 !important">
                                                         <i class="fa fa-user" style="color:#4aa1f3 !important"></i>
@@ -87,7 +82,7 @@
                             <div>
                                 <div class="user-display">
                                     
-                                    <h3 class="user-display-head" style="color:#4aa1f3 !important">Favourite Clubs</h3>
+                                    <h3 class="user-display-head" style="color:#4aa1f3 !important">Favourite Groups</h3>
                                     <hr />
                                     <% _.forEach(user.favClub, function(val){ %>
                                         <p style="margin-bottom: 30px; color:#4aa1f3;">
@@ -101,7 +96,7 @@
                                         <input id="favClub" class="form-control add-items" name="favClub" type="text" style="">
                                             
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default add-items-btn" id="favClubBtn" style="font-weight:bold; background-color:#4aa1f3; color:#fff;">Add Club</button>
+                                                <button class="btn btn-default add-items-btn" id="favClubBtn" style="font-weight:bold; background-color:#4aa1f3; color:#fff;">Add Group</button>
                                             </span>
                                         </div>
                                     </div>
@@ -111,7 +106,7 @@
                                 <div style="margin-top:20px">
                                     <div class="user-display">
                                 
-                                        <h3 class="user-display-head" style="color:#4aa1f3 !important">Favourite Players</h3>
+                                        <h3 class="user-display-head" style="color:#4aa1f3 !important">Favourite Members</h3>
                                         <hr />
                                         <% _.forEach(user.favPlayer, function(val){ %>
                                             <p style="margin-bottom: 30px; color:#4aa1f3;">
@@ -135,7 +130,7 @@
                                 <div style="margin-top:20px">
                                     <div class="user-display">
                                 
-                                        <h3 class="user-display-head" style="color:#4aa1f3 !important">Favourite National Team</h3>
+                                        
                                         <hr />
                                         <% _.forEach(user.favNationalTeam, function(val){ %>
                                             <p style="margin-bottom: 30px; color:#4aa1f3;">
@@ -149,7 +144,7 @@
                                             <input id="nationalTeam" class="form-control add-items" name="nationalTeam" type="text" style="">
                                                 
                                                 <span class="input-group-btn">
-                                                    <button class="btn btn-default add-items-btn" id="nationalTeamBtn" style="font-weight:bold; background-color:#4aa1f3; color:#fff;">Add Team</button>
+                                                    <button class="btn btn-default add-items-btn" id="nationalTeamBtn" style="font-weight:bold; background-color:#4aa1f3; color:#fff;">Add Group</button>
                                                 </span>
                                             </div>
                                         </div>

@@ -12,7 +12,7 @@ router.get("/", function(req, res){
 });
 
 
-router.get("/sdoc", function(req, res){
+router.get("/search", function(req, res){
 
  // Doctor.find({}, function(err, allDoctors){
 
