@@ -1,10 +1,12 @@
+const aadharValid = require('aadhaar-validator');
+
 module.exports = function(_) {
 	return {
 		signupValidation: (req, res, next) => {
 			req.checkBody('username', 'Username is Required').notEmpty();
 			req
 				.checkBody('username', 'Username is not valid')
-				.isLength({ min: 7 });
+				.isLength({ min: 5 });
 
 			req.checkBody('email', 'Email is Required').notEmpty();
 			req.checkBody('email', 'Email is Invalid').isEmail();

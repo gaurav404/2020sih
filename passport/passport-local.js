@@ -3,6 +3,7 @@ const User = require('../models/chatuser');
 const LocalStrategy = require('passport-local').Strategy;
 const Profile = require('../models/profile');
 const { post } = require('../routes');
+const validator = require('aadhaar-validator');
 passport.serializeUser((user, done) => {
 	done(null, user.id);
 });
@@ -29,7 +30,15 @@ passport.use(
 					return done(
 						null,
 						false,
-						req.flash('error', 'User with this scholar ID exist'),
+						req.flash('error', 'User with this name exist'),
+					);
+				}
+				console.log(!validator.isValidNumber(req.body.aadhaar) && !validator.isValidVID(req.body.aadhaar ));
+				if(!validator.isValidNumber(req.body.aadhaar) && !validator.isValidVID(req.body.aadhaar )){
+					return done(
+						null,
+						false,
+						req.flash('error', 'Enter a valid Aadhaar or virtual ID'),
 					);
 				}
 
@@ -37,9 +46,9 @@ passport.use(
 				newUser.username = req.body.username;
 				newUser.fullname = req.body.username;
 				newUser.email = req.body.email;
+				newUser.aadhaar = req.body.aadhaar,
 				newUser.password = newUser.encryptPassword(req.body.password);
 				newUser.created = Date.now();
-
 				const user = await newUser.save();
 				const newProfile = new Profile();
 				newProfile.username = req.body.username;
@@ -49,6 +58,8 @@ passport.use(
 					}
 				})
 				done(null, user);
+				
+				
 			} catch (error) {
 				done(error);
 			}
