@@ -3,6 +3,21 @@
     <%- include('partials/head', {title: post.title}) %>
 
 <body>
+    <% if(pop==1){%>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Warning!</strong> Such type of comments are not well appreciated
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <%} else if(pop==2){%>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Warning!</strong> This comment doesn't comply with this platform
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    <%}%>
     <%- include('partials/nav', {user: locals.user}) %>
     <%- include('partials/jumbotron', {name: info.name}) %>
     <span id="auth"><%= isAuth %></span>

@@ -16,6 +16,7 @@ exports.check = function (req, res) {
     })
 }
 exports.comment = function (req, res) {
+    req.session.pop = null;
     Post.update({
         _id: req.params.id
     }, {
@@ -45,8 +46,10 @@ exports.comment = function (req, res) {
             })
         }else if(val==0){
             console.log("sorry");
+            req.session.pop = 1;
         }else{
             console.log("extremely sorry");
+            req.session.pop = 2;
         }
         res.redirect(`/forum/r/${req.params.subreddit}/${req.params.id}/comments`);
     })

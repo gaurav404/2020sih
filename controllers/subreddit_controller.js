@@ -94,7 +94,7 @@ exports.get_post = function (req, res) {
     let comments = undefined
     let subscribed = false;
     let karma = 0
-
+    let pop =  req.session.pop;
     let sort = undefined;
 
     switch (req.query.sort) {
@@ -172,6 +172,7 @@ exports.get_post = function (req, res) {
                     }
 
                     res.render('./post', {
+                        pop:pop,
                         info: info,
                         post: post,
                         karma: karma,
